@@ -1,24 +1,55 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## usersテーブル
+デバイスgemを使用して作成  
+  
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false, unique: true, index: true|
+|email|string|null: false, default|
+|encrypted_password|string|null: false, default|
 
-* Ruby version
 
-* System dependencies
+### Association
+- has_many :groups, through: :group_users  
+- has_many :group_users
 
-* Configuration
 
-* Database creation
+## groupsテーブル
 
-* Database initialization
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false, unique: true, index: true|
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Association
+- has_many :users, through: :group_users  
+- has_many :group_users  
+- accepts_nested_attributes_for :group_users  
+   
+   
+ ## messagesテーブル
+ 
+ |Column|Type|Options|
+ |------|----|-------|
+ |body|text|null: false, unique: true, index: true|
+ |image|string||
+ |group|references|foreign_key: true|
+ |user|references|foreign_key: true| 
+ |timestamps|||
+   
+ ### Association
+- belongs_to :user  
+- belongs_to :group
+  
+  
+ ## group_usersテーブル
+ 
+ |Column|Type|Options|
+ |------|----|-------|
+ |user|references|foreign_key: true, null: false| 
+ |group|references|foreign_key: true, null: false| 
+   
+ ### Association
+- belongs_to :user  
+- belongs_to :group
