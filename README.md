@@ -7,8 +7,6 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false, unique: true, index: true|
-|email|string|null: false, default, unique: true|
-|encrypted_password|string|null: false, default|
 
 
 ### Association
@@ -20,7 +18,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false, unique: true, index: true|
+|name|string|null: false, unique: true|
 
 ### Association
 - has_many :group_users  
@@ -31,11 +29,10 @@
  
  |Column|Type|Options|
  |------|----|-------|
- |body|text|null: false|
+ |body|text||
  |image|string||
  |group_id|references|foreign_key: true, index: true|
  |user_id|references|foreign_key: true, index: true| 
- |timestamps|||
    
  ### Association
 - belongs_to :users  
