@@ -32,7 +32,6 @@ $(function () {
         e.preventDefault();
         var formData = new FormData(this);
         var url = $(this).attr("action");
-
         $.ajax({
             url: url,
             type: "POST",
@@ -41,14 +40,14 @@ $(function () {
             processData: false,
             contentType: false
         })
-            .done(function (data) {
-                var html = buildHTML(data);
-                $('.messages').append(html);
-                scroll_view()
-            })
-            .fail(function () {
-                alert('error');
-            })
-            ;
+
+        .done(function (data) {
+            var html = buildHTML(data);
+            $('.messages').append(html);
+            scroll_view()
+        })
+        .fail(function () {
+            alert('error');
+        });
     })
-})
+});
