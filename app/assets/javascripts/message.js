@@ -45,16 +45,10 @@ $(function () {
                 var html = buildHTML(data);
                 $('.messages').append(html);
                 scroll_view()
-                // $('#message_content').val("");
-                // $('#message_image').val("");
-                // $('#message_name').val("");
-                // $('#message_date').val("");
-                // $('.messages').animate({ scrollTop: $(".messages")[0].scrollHeight }, 1500);
             })
             .fail(function () {
                 alert('error');
             })
             ;
     })
-    // return false;
 })
