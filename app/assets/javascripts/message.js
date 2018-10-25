@@ -31,7 +31,7 @@ $(function () {
         $('#new_message')[0].reset();
     }
 
-    var updateTime = 5000;
+    var updateTime = 3000;
     setInterval(autoUpdate, updateTime);
 
     function autoUpdate() {
@@ -78,7 +78,8 @@ $(function () {
         .done(function (data) {
             var html = buildHTML(data);
             $('.messages').append(html);
-            scroll_view()
+            form_reset();
+            scroll_view();
             $('#message_content').val("");
             $('.form__textfield').val('');
             $('.form__submit').prop('disabled', false);
